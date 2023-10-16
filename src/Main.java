@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
+import javax.xml.transform.TransformerException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TransformerException {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
@@ -19,7 +21,10 @@ public class Main {
             System.out.println("10. Leer PR131HashMapData.ser");
             System.out.println("11. Guardar datos en PR132people.dat y leerlos");
             System.out.println("12. Modificar datos de PR133treballadors");
-            System.out.println("13. Salir");
+            System.out.println("13. StudentManager");
+            System.out.println("14. PR140Main leer xml personas");
+            System.out.println("15. PR141Main crear archivo biblioteca");
+            System.out.println("16. Salir");
             System.out.print("Seleccione una opción: ");
 
             int opcion = scanner.nextInt();
@@ -62,6 +67,15 @@ public class Main {
                     PR133mainTreballadors.main(args);
                     break;
                 case 13:
+                    studentManager.main(args);
+                    break;
+                case 14:
+                    PR140Main.main(args);
+                    break;
+                    case 15:
+                    PR141Main.main(args);
+                    break;
+                case 16:
                     System.out.println("Saliendo del programa. ¡Hasta luego!");
                     running = false;
                     break;
