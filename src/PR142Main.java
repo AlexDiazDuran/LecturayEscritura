@@ -1,6 +1,7 @@
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -64,10 +65,10 @@ public class PR142Main {
                         String studentNameToRemove = scanner.nextLine();
                         removeStudentFromCourse(doc, xpath, courseIdToRemove, studentNameToRemove);
                         break;
-                    /*case 6:
-                        saveDocumentToFile(doc, "tu_archivo_modificado.xml");
+                    case 6:
+                        saveDocumentToFile(doc, "xml/cursos.xml");
                         System.out.println("Cambios guardados. Saliendo.");
-                        return;*/
+                        return;
                     default:
                         System.out.println("Opción no válida.");
                 }
@@ -141,6 +142,20 @@ public class PR142Main {
                 studentNode.getParentNode().removeChild(studentNode);
             }
         }
+
+        private static void saveDocumentToFile(Document doc, String filePath) throws TransformerException {
+            try {
+                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                Transformer transformer = transformerFactory.newTransformer();
+                DOMSource source = new DOMSource(doc);
+                StreamResult result = new StreamResult(new File(filePath)); // Utiliza la misma ruta del archivo original
+                transformer.transform(source, result);
+                System.out.println("Cambios guardados en el archivo " + filePath);
+            } catch (TransformerException e) {
+                e.printStackTrace();
+            }
+        }
+        
     }
 
 

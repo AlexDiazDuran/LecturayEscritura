@@ -24,7 +24,8 @@ public class Main {
             System.out.println("13. StudentManager");
             System.out.println("14. PR140Main leer xml personas");
             System.out.println("15. PR141Main crear archivo biblioteca");
-            System.out.println("16. Salir");
+            System.out.println("16. PR142Main gestion cursos");
+            System.out.println("17. Salir");
             System.out.print("Seleccione una opción: ");
 
             int opcion = scanner.nextInt();
@@ -72,10 +73,13 @@ public class Main {
                 case 14:
                     PR140Main.main(args);
                     break;
-                    case 15:
+                case 15:
                     PR141Main.main(args);
                     break;
                 case 16:
+                    PR142Main.main(args);
+                    break;
+                case 17:
                     System.out.println("Saliendo del programa. ¡Hasta luego!");
                     running = false;
                     break;
